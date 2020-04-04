@@ -7,12 +7,18 @@ import { getRequests } from '../api'
 import { Tabs, Tab } from '../components/Tabs'
 import { Link } from 'react-router-dom'
 
-const HomePage: React.FunctionComponent = () => {
+const MyRequestsPage: React.FunctionComponent = () => {
   const [requests, setRequests] = useState<Request[]>([])
 
   useEffect(() => {
     const fetchRequests = async (): Promise<void> => {
-      const requests = await getRequests(null, true)
+      const user = JSON.parse(localStorage.getItem('user'))
+      const requests = await getRequests(
+        {
+          createdBy: user.email,
+        },
+        true
+      )
       setRequests(requests)
     }
     fetchRequests()
@@ -20,9 +26,34 @@ const HomePage: React.FunctionComponent = () => {
 
   return (
     <Page>
-      <h1>Requests</h1>
+      <h1>My requests</h1>
       <Tabs>
-        <Tab label="List">
+        <Tab label="Active">
+          <ul>
+            {requests.map((request) => (
+              <li
+                key={request.id}
+                css={css`
+                  border-bottom: 1px solid black;
+                  margin-bottom: 16px;
+                `}
+              >
+                <Link to={`/requests/${request.id}`}>
+                  <div>{request.category}</div>
+                  <div>
+                    {request.firstName} {request.lastName}
+                  </div>
+                  <div>{request.location}</div>
+                  <div>{request.reward} SEK</div>
+                  <div>{request.description}</div>
+                </Link>
+                <button>Done</button>
+                <button>Cancel</button>
+              </li>
+            ))}
+          </ul>
+        </Tab>
+        <Tab label="Done">
           <ul>
             {requests.map((request) => (
               <li
@@ -45,10 +76,9 @@ const HomePage: React.FunctionComponent = () => {
             ))}
           </ul>
         </Tab>
-        <Tab label="Map">* To be implemented *</Tab>
       </Tabs>
     </Page>
   )
 }
 
-export default HomePage
+export default MyRequestsPage

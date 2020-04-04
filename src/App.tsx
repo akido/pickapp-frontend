@@ -12,6 +12,9 @@ import { AuthContext } from './contexts/Auth'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import DetailsPage from './pages/DetailsPage'
+import MyErrandsPage from './pages/MyErrandsPage'
+import MyRequestsPage from './pages/MyRequestsPage'
+import NewRequestPage from './pages/NewRequestPage'
 
 const PrivateRoute = ({ children, ...rest }: RouteProps) => {
   const { isAuthenticated, isAuthenticating } = useContext(AuthContext)
@@ -45,8 +48,17 @@ const App = () => {
         <PrivateRoute path="/" exact>
           <HomePage />
         </PrivateRoute>
-        <PrivateRoute path="/requests/:id">
+        <PrivateRoute path="/requests/:id" exact>
           <DetailsPage />
+        </PrivateRoute>
+        <PrivateRoute path="/requests/new" exact>
+          <NewRequestPage />
+        </PrivateRoute>
+        <PrivateRoute path="/my-errands">
+          <MyErrandsPage />
+        </PrivateRoute>
+        <PrivateRoute path="/my-requests">
+          <MyRequestsPage />
         </PrivateRoute>
       </Switch>
     </Router>

@@ -23,9 +23,7 @@ const DetailsPage: React.FunctionComponent = () => {
       <h1>Details</h1>
       {request && (
         <Fragment>
-          <div>
-            {request.firstName} {request.lastName}
-          </div>
+          <div>{request.createdBy}</div>
           <div>{request.location}</div>
           <div>{request.category}</div>
           <div>{request.reward} SEK</div>

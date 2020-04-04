@@ -5,7 +5,10 @@
     "lastName": "Smith",
     "category": "Groceries",
     "location": "Stupvägen 11, Solna, 19022",
-    "description": "Bread x2, eggs x10"
+    "description": "Bread x2, eggs x10",
+    "reward": "0",
+    "createdBy": "anna.smith@example.com",
+    "takendBy": "peter.petersson@example.com"
   },
   {
     "id": "002",
@@ -13,7 +16,10 @@
     "lastName": "Petersson",
     "category": "Pharmacy",
     "location": "Drotningatan 1, Stockholm, 00000",
-    "description": "Vitamin C x2"
+    "description": "Vitamin C x2",
+    "reward": "10",
+    "createdBy": "peter.petersson@example.com",
+    "takendBy": ""
   },
   {
     "id": "003",
@@ -21,7 +27,10 @@
     "lastName": "Larsson",
     "category": "Food",
     "location": "Yvägen 14, Stockholm, 19022",
-    "description": "Pizza from PizzaHut"
+    "description": "Pizza from PizzaHut",
+    "reward": "0",
+    "createdBy": "jonathan.larsson@example.com",
+    "takendBy": "anna.smith@example.com"
   },
   {
     "id": "004",
@@ -29,6 +38,9 @@
     "lastName": "Eriksson",
     "category": "Groceries",
     "location": "Kungsgatan 19, Nacka, 89900",
-    "description": "Almond milk x2"
+    "description": "Almond milk x2",
+    "reward": "25",
+    "createdBy": "katarina.eriksson@example.com",
+    "takendBy": "jonathan.larsson@example.com"
   }
 ]

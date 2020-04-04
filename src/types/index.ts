@@ -5,5 +5,7 @@ export interface Request {
   category: string
   location: string
   description: string
-  reward?: number
+  reward?: string
+  createdBy?: string // TODO: Must be a relation to a person created
+  takenBy?: string // TODO: Must be a relation to a person who took a request
 }
