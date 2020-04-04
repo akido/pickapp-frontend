@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es5", "es6", "es2017", "dom"],
+    "jsx": "react",
+    "downlevelIteration": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*", "typings.d.ts"]
+}
