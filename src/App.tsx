@@ -7,10 +7,11 @@ import {
   Redirect,
   RouteProps,
 } from 'react-router-dom'
-import LoginPage from './pages/LoginPage'
-import HomePage from './pages/HomePage'
 import { jsx } from '@emotion/core'
 import { AuthContext } from './contexts/Auth'
+import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
+import DetailsPage from './pages/DetailsPage'
 
 const PrivateRoute = ({ children, ...rest }: RouteProps) => {
   const { isAuthenticated, isAuthenticating } = useContext(AuthContext)
@@ -18,7 +19,7 @@ const PrivateRoute = ({ children, ...rest }: RouteProps) => {
   return (
     <Route
       {...rest}
-      render={({ location }) =>
+      render={({ location }): React.ReactNode =>
         isAuthenticated ? (
           children
         ) : (
@@ -41,8 +42,11 @@ const App = () => {
         <Route path="/login">
           <LoginPage />
         </Route>
-        <PrivateRoute path="/">
+        <PrivateRoute path="/" exact>
           <HomePage />
+        </PrivateRoute>
+        <PrivateRoute path="/requests/:id">
+          <DetailsPage />
         </PrivateRoute>
       </Switch>
     </Router>

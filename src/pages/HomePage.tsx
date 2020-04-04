@@ -38,6 +38,7 @@ const HomePage: React.FunctionComponent = () => {
                     {request.firstName} {request.lastName}
                   </div>
                   <div>{request.location}</div>
+                  <div>{request.reward} SEK</div>
                   <div>{request.description}</div>
                 </Link>
               </li>

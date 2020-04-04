@@ -5,4 +5,5 @@ export interface Request {
   category: string
   location: string
   description: string
+  reward?: number
 }
