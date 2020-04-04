@@ -1,3 +1,4 @@
+/** @jsx jsx */
 import React from 'react'
 import {
   BrowserRouter as Router,
@@ -7,6 +8,7 @@ import {
 } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import { jsx } from '@emotion/core'
 
 const App = () => (
   <Router>

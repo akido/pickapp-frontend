@@ -1,0 +1,34 @@
+[
+  {
+    "id": "001",
+    "firstName": "Anna",
+    "lastName": "Smith",
+    "category": "Groceries",
+    "location": "Stupvägen 11, Solna, 19022",
+    "description": "Bread x2, eggs x10"
+  },
+  {
+    "id": "002",
+    "firstName": "Peter",
+    "lastName": "Petersson",
+    "category": "Pharmacy",
+    "location": "Drotningatan 1, Stockholm, 00000",
+    "description": "Vitamin C x2"
+  },
+  {
+    "id": "003",
+    "firstName": "Jonathan",
+    "lastName": "Larsson",
+    "category": "Food",
+    "location": "Yvägen 14, Stockholm, 19022",
+    "description": "Pizza from PizzaHut"
+  },
+  {
+    "id": "004",
+    "firstName": "Katarina",
+    "lastName": "Eriksson",
+    "category": "Groceries",
+    "location": "Kungsgatan 19, Nacka, 89900",
+    "description": "Almond milk x2"
+  }
+]

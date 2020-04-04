@@ -17,13 +17,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+      },
+      {
         loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/,
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
       },
       {
         enforce: 'pre',

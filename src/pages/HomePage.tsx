@@ -1,19 +1,24 @@
-import React, { useState } from 'react'
+/** @jsx jsx */
+import React, { useState, useEffect } from 'react'
+import Page from '../components/Page'
+import { jsx } from '@emotion/core'
+import { Request } from '../types'
+import { getRequests } from '../api'
 
-interface Request {
-  id: string
-  firstName: string
-  lastName: string
-  category: string
-  location: string
-  description: string
-}
-
-const HomePage = (): React.FunctionComponentElement<{}> => {
+const HomePage: React.FunctionComponent = () => {
   const [requests, setRequests] = useState<Request[]>([])
 
+  useEffect(() => {
+    const fetchRequests = async (): Promise<void> => {
+      const requests = await getRequests(true)
+      setRequests(requests)
+    }
+    fetchRequests()
+  })
+
   return (
-    <div>
+    <Page>
+      <h1>Requests</h1>
       <ul>
         {requests.map((request) => (
           <li key={request.id}>
@@ -26,7 +31,7 @@ const HomePage = (): React.FunctionComponentElement<{}> => {
           </li>
         ))}
       </ul>
-    </div>
+    </Page>
   )
 }
 
