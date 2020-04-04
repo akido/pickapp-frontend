@@ -7,9 +7,9 @@ const mockTimeout = 500
 export const getRequests = (isMock?: boolean): Promise<Request[]> => {
   if (isMock) {
     return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(requests)
-      }, mockTimeout)
+      // setTimeout(() => {
+      resolve(requests)
+      // }, mockTimeout)
     })
   } else {
     // TODO: implement actual server call
