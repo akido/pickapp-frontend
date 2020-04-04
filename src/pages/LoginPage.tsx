@@ -1,7 +1,9 @@
 /** @jsx jsx */
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Page from '../components/Page'
 import { jsx, css } from '@emotion/core'
+import { AuthContext } from '../contexts/Auth'
+import { useHistory } from 'react-router-dom'
 
 const formStyles = css`
   width: 100%;
@@ -30,10 +32,14 @@ const formStyles = css`
 const LoginPage: React.FunctionComponent = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const auth = useContext(AuthContext)
+  const history = useHistory()
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    console.log('Sending a request for logging in...')
+    if (!email || !password) return
+    const success = auth.login(email, password)
+    if (success) history.push('/')
   }
 
   return (
