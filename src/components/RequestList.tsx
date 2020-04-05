@@ -38,6 +38,7 @@ const List = styled.ul`
         padding: 4px 8px;
         border-radius: 12px;
         align-self: flex-start;
+        font-size: 14px;
       }
       .item-description {
         color: #b9b9b9;

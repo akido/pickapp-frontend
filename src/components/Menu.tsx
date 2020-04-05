@@ -3,6 +3,12 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { jsx } from '@emotion/core'
 import { Link } from 'react-router-dom'
+import {
+  AiOutlineHome,
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+  AiOutlineNotification,
+} from 'react-icons/ai'
 
 const Navigation = styled.nav`
   position: fixed;
@@ -10,9 +16,24 @@ const Navigation = styled.nav`
   width: 480px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  svg {
+    font-size: 26px;
+    color: black;
+  }
+  .new-request {
+    font-size: 26px;
+    border-radius: 20px;
+    padding: 4px 26px;
+    color: white;
+    background-color: #00a3ff;
+    &:hover {
+      background-color: #065c8c;
+      /* border: 1px solid #065c8c; */
+      /* color: white; */
+    }
+  }
   a {
-    border: 1px solid black;
-    border-radius: 8px;
     padding: 8px;
     cursor: pointer;
     text-decoration: none;
@@ -21,11 +42,21 @@ const Navigation = styled.nav`
 
 const Menu: React.FunctionComponent<any> = ({}: any) => (
   <Navigation>
-    <Link to="/">🏠</Link>
-    <Link to="/my-errands">🛒</Link>
-    <Link to="/requests/new">+</Link>
-    <Link to="/my-requests">🙏🏻</Link>
-    <Link to="/profile">🧍</Link>
+    <Link to="/">
+      <AiOutlineHome />
+    </Link>
+    <Link to="/my-errands">
+      <AiOutlineShoppingCart />
+    </Link>
+    <Link to="/requests/new">
+      <div className="new-request">+</div>
+    </Link>
+    <Link to="/my-requests">
+      <AiOutlineNotification />
+    </Link>
+    <Link to="/profile">
+      <AiOutlineUser />
+    </Link>
   </Navigation>
 )
 
