@@ -29,8 +29,6 @@ const Navigation = styled.nav`
     background-color: #00a3ff;
     &:hover {
       background-color: #065c8c;
-      /* border: 1px solid #065c8c; */
-      /* color: white; */
     }
   }
   a {
