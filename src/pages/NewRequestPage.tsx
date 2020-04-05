@@ -2,18 +2,33 @@
 import React, { useState } from 'react'
 import Page from '../components/Page'
 import { jsx, css } from '@emotion/core'
+import { createRequest } from '../api'
+import { useHistory } from 'react-router-dom'
 
 const NewRequestPage: React.FunctionComponent = () => {
+  const history = useHistory()
   const [category, setCategory] = useState<string>('groceries')
   const [location, setLocation] = useState<string>('')
   const [reward, setReward] = useState<string>('') // TODO: Number input or regexp
   const [description, setDescription] = useState<string>('')
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const onSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     event.preventDefault()
     if (!category || !location || !description) return
-    // const success = auth.login(email, password)
-    // if (success) history.push('/')
+    const user = JSON.parse(localStorage.getItem('user'))
+    const response = await createRequest(
+      {
+        createdBy: user.email,
+        category,
+        location,
+        description,
+        reward,
+      },
+      true
+    )
+    if (response.id) history.push('/')
   }
 
   return (

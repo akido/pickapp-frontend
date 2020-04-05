@@ -10,6 +10,14 @@ interface RequestsFilter {
   takenBy?: string
 }
 
+interface CreateRequest {
+  createdBy: string
+  category: string
+  location: string
+  reward: string
+  description: string
+}
+
 export const getRequests = (
   filter?: RequestsFilter,
   isMock?: boolean
@@ -49,5 +57,22 @@ export const getRequest = (
   } else {
     // TODO: implement actual server call
     // return fetch(baseUrl + '/request' + requestId).then(resp => resp.json())
+  }
+}
+
+export const createRequest = (
+  body: CreateRequest,
+  isMock?: boolean
+): Promise<{ id: string }> => {
+  if (isMock) {
+    return new Promise((resolve) => {
+      // setTimeout(() => {
+      const newlyCreatedId = Math.random().toFixed(3)
+      resolve({ id: newlyCreatedId })
+      // }, mockTimeout)
+    })
+  } else {
+    // TODO: implement actual server call
+    // return fetch(baseUrl + '/request').then(resp => resp.json(), 'POST', body)
   }
 }
