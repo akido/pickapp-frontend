@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React, { useState, useEffect } from 'react'
 import Page from '../components/Page'
-import { jsx } from '@emotion/core'
+import { jsx, css } from '@emotion/core'
 import { Request } from '../types'
 import { getRequests } from '../api'
 import { Tabs, Tab } from '../components/Tabs'
@@ -22,8 +22,8 @@ const List = styled.ul`
       display: flex;
       align-items: center;
       > .item-img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         border-radius: 60px;
         margin-right: 16px;
       }
@@ -70,33 +70,43 @@ const HomePage: React.FunctionComponent = () => {
         <Tab label="List">
           <Search value={search} onSearch={setSearch} />
           <List>
-            {requests.map((request) => (
-              <li key={request.id}>
-                <Link to={`/requests/${request.id}`}>
-                  <img
-                    className="item-img"
-                    src={request.image}
-                    alt={request.id}
-                  />
-                  <div className="item-content">
-                    <div>
-                      <span className="item-name">
-                        {request.firstName} {request.lastName}
-                      </span>
-                      , {request.location}
+            {requests
+              .filter((request) => request.category.includes(search))
+              .map((request) => (
+                <li key={request.id}>
+                  <Link to={`/requests/${request.id}`}>
+                    <img
+                      className="item-img"
+                      src={request.image}
+                      alt={request.id}
+                    />
+                    <div className="item-content">
+                      <div>
+                        <span className="item-name">
+                          {request.firstName} {request.lastName}
+                        </span>
+                        , {request.location}
+                      </div>
+                      <div className="item-category">{request.category}</div>
+                      <div className="item-reward">{request.reward}</div>
+                      <div className="item-description">
+                        {request.description}...
+                      </div>
                     </div>
-                    <div className="item-category">{request.category}</div>
-                    <div className="item-reward">{request.reward}</div>
-                    <div className="item-description">
-                      {request.description}...
-                    </div>
-                  </div>
-                </Link>
-              </li>
-            ))}
+                  </Link>
+                </li>
+              ))}
           </List>
         </Tab>
-        <Tab label="Map">* To be implemented *</Tab>
+        <Tab label="Map">
+          <div
+            css={css`
+              padding: 16px;
+            `}
+          >
+            To be implemented
+          </div>
+        </Tab>
       </Tabs>
     </Page>
   )

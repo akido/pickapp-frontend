@@ -8,10 +8,24 @@ const TabPanel = styled.div`
   width: 100%;
   > div {
     flex: 1;
-    border: 1px solid black;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
     text-align: center;
     padding: 16px;
     cursor: pointer;
+    &:hover {
+      background-color: #065c8c;
+      border: 1px solid #065c8c;
+      color: white;
+    }
+    &:first-of-type {
+      border-right: 1px solid #aaa;
+    }
+    &.active {
+      background-color: #00a3ff;
+      border: none;
+      color: white;
+    }
   }
 `
 
@@ -37,7 +51,11 @@ const Tabs: React.FunctionComponent = ({ children }: any) => {
     <div>
       <TabPanel>
         {labels.map((label: string) => (
-          <div onClick={() => setActive(label)} key={label}>
+          <div
+            onClick={() => setActive(label)}
+            key={label}
+            className={label === active ? 'active' : ''}
+          >
             {label}
           </div>
         ))}
