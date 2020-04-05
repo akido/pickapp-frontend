@@ -19,7 +19,17 @@ const NewRequestPage: React.FunctionComponent = () => {
   return (
     <Page>
       <h1>Create request</h1>
-      <form css={css``} onSubmit={onSubmit}>
+      <form
+        css={css`
+          display: flex;
+          flex-direction: column;
+          > * {
+            margin-bottom: 16px;
+            min-height: 52px;
+          }
+        `}
+        onSubmit={onSubmit}
+      >
         <select
           id="category"
           name="category"

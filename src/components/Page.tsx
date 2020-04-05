@@ -1,7 +1,8 @@
+/** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-/** @jsx jsx */
 import { jsx } from '@emotion/core'
+import Menu from './Menu'
 
 const Container = styled.div`
   padding: 16px;
@@ -14,7 +15,10 @@ interface PageProps {
 }
 
 const Page: React.FunctionComponent<PageProps> = ({ children }: PageProps) => (
-  <Container>{children}</Container>
+  <Container>
+    {children}
+    <Menu />
+  </Container>
 )
 
 export default Page
