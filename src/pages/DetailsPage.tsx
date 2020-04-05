@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
 import Page from '../components/Page'
-import { jsx, css } from '@emotion/core'
+import { jsx } from '@emotion/core'
 import { Request } from '../types'
 import { getRequest } from '../api'
 import { useParams } from 'react-router-dom'

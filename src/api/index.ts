@@ -13,7 +13,7 @@ interface RequestsFilter {
 interface CreateRequest {
   createdBy: string
   category: string
-  location: string
+  address: string
   reward: string
   description: string
 }
