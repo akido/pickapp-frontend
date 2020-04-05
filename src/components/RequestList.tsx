@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Request } from '../types'
 import { useHistory } from 'react-router-dom'
-import { isUserCreator } from '../utils'
+import { isUserCreator, isTakenBy } from '../utils'
 
 const List = styled.ul`
   list-style: none;
@@ -86,14 +86,19 @@ const RequestList: React.FunctionComponent<RequestListProps> = ({
   const user = JSON.parse(localStorage.getItem('user'))
   const history = useHistory()
 
-  const onDoneClick = (event: React.MouseEvent): void => {
+  const finishRequest = (event: React.MouseEvent): void => {
     event.stopPropagation()
     console.log('move to done...')
   }
 
-  const onCancelClick = (event: React.MouseEvent): void => {
+  const cancelRequest = (event: React.MouseEvent): void => {
     event.stopPropagation()
     console.log('remove from everywhere...')
+  }
+
+  const cancelInterest = (event: React.MouseEvent): void => {
+    event.stopPropagation()
+    console.log('remove from my errands...')
   }
 
   return (
@@ -124,10 +129,17 @@ const RequestList: React.FunctionComponent<RequestListProps> = ({
             </div>
             {isUserCreator(req.createdBy, user) && (
               <div className="item-options">
-                <button className="item-btn-done" onClick={onDoneClick}>
+                <button className="item-btn-done" onClick={finishRequest}>
                   Done
                 </button>
-                <button className="item-btn-cancel" onClick={onCancelClick}>
+                <button className="item-btn-cancel" onClick={cancelRequest}>
+                  Cancel
+                </button>
+              </div>
+            )}
+            {isTakenBy(req.takenBy, user) && (
+              <div className="item-options">
+                <button className="item-btn-cancel" onClick={cancelInterest}>
                   Cancel
                 </button>
               </div>

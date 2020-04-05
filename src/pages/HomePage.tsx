@@ -7,7 +7,7 @@ import { getRequests } from '../api'
 import { Tabs, Tab } from '../components/Tabs'
 import Search from '../components/Search'
 import RequestList from '../components/RequestList'
-import { isUserCreator } from '../utils'
+import { isUserCreator, isTakenBy } from '../utils'
 
 const HomePage: React.FunctionComponent = () => {
   const [requests, setRequests] = useState<Request[]>([])
@@ -33,6 +33,7 @@ const HomePage: React.FunctionComponent = () => {
             requests={requests.filter(
               (req) =>
                 !isUserCreator(req.createdBy, user) &&
+                !isTakenBy(req.takenBy, user) &&
                 req.category.toLowerCase().includes(search.toLowerCase())
             )}
           />

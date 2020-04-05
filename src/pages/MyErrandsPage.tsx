@@ -29,11 +29,14 @@ const MyErrandsPage: React.FunctionComponent = () => {
       <h1>My errands</h1>
       <Tabs>
         <Tab label="Active">
-          <RequestList requests={requests} />
-          {/* TODO: Cancel button */}
+          <RequestList
+            requests={requests.filter((request) => request.status === 'active')}
+          />
         </Tab>
         <Tab label="Done">
-          <RequestList requests={requests} />
+          <RequestList
+            requests={requests.filter((request) => request.status === 'done')}
+          />
         </Tab>
       </Tabs>
     </Page>

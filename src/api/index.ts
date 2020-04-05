@@ -31,7 +31,7 @@ export const getRequests = (
         resolve(requests.filter((req) => req.createdBy === filter.createdBy))
       }
       if (filter && filter.takenBy) {
-        resolve(requests.filter((req) => req.takendBy === filter.takenBy))
+        resolve(requests.filter((req) => req.takenBy === filter.takenBy))
       }
       resolve(requests)
       // }, mockTimeout)

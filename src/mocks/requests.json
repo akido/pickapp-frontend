@@ -10,7 +10,7 @@
     "description": "Bread x2, eggs x10",
     "reward": "0 SEK",
     "createdBy": "anna.smith@example.com",
-    "takendBy": "peter.petersson@example.com",
+    "takenBy": "peter.petersson@example.com",
     "status": "active"
   },
   {
@@ -24,7 +24,7 @@
     "description": "Vitamin C x2",
     "reward": "10 SEK",
     "createdBy": "peter.petersson@example.com",
-    "takendBy": "",
+    "takenBy": "",
     "status": "done"
   },
   {
@@ -38,7 +38,7 @@
     "description": "Pizza from PizzaHut",
     "reward": "0 SEK",
     "createdBy": "jonathan.larsson@example.com",
-    "takendBy": "anna.smith@example.com",
+    "takenBy": "anna.smith@example.com",
     "status": "active"
   },
   {
@@ -52,7 +52,7 @@
     "description": "Almond milk x2",
     "reward": "25 SEK",
     "createdBy": "katarina.eriksson@example.com",
-    "takendBy": "jonathan.larsson@example.com",
+    "takenBy": "jonathan.larsson@example.com",
     "status": "active"
   },
   {
@@ -66,7 +66,7 @@
     "description": "Treo x11",
     "reward": "1 SEK",
     "createdBy": "anna.smith@example.com",
-    "takendBy": "katarina.eriksson@example.com",
+    "takenBy": "katarina.eriksson@example.com",
     "status": "done"
   }
 ]
