@@ -12,7 +12,6 @@ const formStyles = css`
   input {
     height: 52px;
     border: 2px solid black;
-    /* border-radius: 4px; */
     padding: 16px;
     box-sizing: border-box;
     margin-bottom: 16px;

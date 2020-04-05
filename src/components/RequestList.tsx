@@ -127,7 +127,7 @@ const RequestList: React.FunctionComponent<RequestListProps> = ({
               <div className="item-reward">{req.reward}</div>
               <div className="item-description">{req.description} ...</div>
             </div>
-            {isUserCreator(req.createdBy, user) && (
+            {isUserCreator(req.createdBy, user) && req.status === 'active' && (
               <div className="item-options">
                 <button className="item-btn-done" onClick={finishRequest}>
                   Done
@@ -137,7 +137,7 @@ const RequestList: React.FunctionComponent<RequestListProps> = ({
                 </button>
               </div>
             )}
-            {isTakenBy(req.takenBy, user) && (
+            {isTakenBy(req.takenBy, user) && req.status === 'active' && (
               <div className="item-options">
                 <button className="item-btn-cancel" onClick={cancelInterest}>
                   Cancel
