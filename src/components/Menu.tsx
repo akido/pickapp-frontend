@@ -18,6 +18,9 @@ const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: white;
   svg {
     font-size: 26px;
     color: black;

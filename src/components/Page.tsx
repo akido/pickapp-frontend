@@ -8,7 +8,7 @@ import { AuthContext } from '../contexts/Auth'
 const Container = styled.div`
   padding: 16px;
   max-width: 480px;
-  margin: 0 auto;
+  margin: 0 auto 32px;
 `
 
 interface PageProps {
