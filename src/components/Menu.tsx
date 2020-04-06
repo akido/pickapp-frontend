@@ -13,7 +13,8 @@ import {
 const Navigation = styled.nav`
   position: fixed;
   bottom: 0;
-  width: 480px;
+  right: 16px;
+  left: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
