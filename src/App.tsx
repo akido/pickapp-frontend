@@ -1,14 +1,6 @@
 /** @jsx jsx */
-import { useContext } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  RouteProps,
-} from 'react-router-dom'
+import { Switch, Route, Router } from 'react-router-dom'
 import { jsx } from '@emotion/core'
-import { AuthContext } from './contexts/Auth'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import DetailsPage from './pages/DetailsPage'
@@ -16,32 +8,19 @@ import MyErrandsPage from './pages/MyErrandsPage'
 import MyRequestsPage from './pages/MyRequestsPage'
 import NewRequestPage from './pages/NewRequestPage'
 import ProfilePage from './pages/ProfilePage'
+import { useAuth0 } from './contexts/Auth0'
+import history from './utils/history'
+import PrivateRoute from './components/PrivateRoute'
 
-const PrivateRoute = ({ children, ...rest }: RouteProps) => {
-  const { isAuthenticated, isAuthenticating } = useContext(AuthContext)
-  if (isAuthenticating) return <div>Loading...</div>
-  return (
-    <Route
-      {...rest}
-      render={({ location }): React.ReactNode =>
-        isAuthenticated ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: location },
-            }}
-          />
-        )
-      }
-    />
-  )
-}
+const App = (): JSX.Element => {
+  const { loading } = useAuth0()
 
-const App = () => {
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
         <Route path="/login">
           <LoginPage />

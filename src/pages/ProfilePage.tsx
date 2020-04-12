@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React, { useContext } from 'react'
+import React from 'react'
 import Page from '../components/Page'
 import { jsx, css } from '@emotion/core'
-import { AuthContext } from '../contexts/Auth'
+import { useAuth0 } from '../contexts/Auth0'
 
 const buttonStyles = css`
   height: 52px;
@@ -28,24 +28,26 @@ const emailStyles = css`
   margin-bottom: 16px;
 `
 
+const avatarStyles = css`
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  margin-bottom: 16px;
+`
+
 const ProfilePage: React.FunctionComponent = () => {
-  const auth = useContext(AuthContext)
-  const user = JSON.parse(localStorage.getItem('user'))
+  const { logout, user } = useAuth0()
 
   return (
     <Page>
       <h1>Profile</h1>
       <div css={containerStyles}>
+        <img src={user.picture} css={avatarStyles} alt="Profile" />
         <div css={emailStyles}>
           <b>Email: </b>
           {user.email}
         </div>
-        <button
-          css={buttonStyles}
-          onClick={() => {
-            auth.logout()
-          }}
-        >
+        <button css={buttonStyles} onClick={logout}>
           Log out
         </button>
       </div>
